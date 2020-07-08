@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'email_text_field.dart';
+import 'package:forminputs/atomic/email_text_field.dart';
 
 class FormView extends StatefulWidget {
   @override
@@ -14,20 +13,10 @@ class _FormViewState extends State<FormView> {
   bool isRequestAvaible = false;
 
   GlobalKey<FormState> _formState = GlobalKey();
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar,
-      body: PageView(
-        controller: PageController(viewportFraction: 0.85),
-        children: <Widget>[
-          Container(color: Colors.red),
-          Container(color: Colors.blue),
-          Container(color: Colors.red),
-          Container(color: Colors.blue),
-        ],
-      ),
-    );
+    return Scaffold(appBar: buildAppBar, body: buildFormView());
   }
 
   AppBar get buildAppBar => AppBar(
@@ -40,7 +29,13 @@ class _FormViewState extends State<FormView> {
       autovalidate: isAutoValidate,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[buildTextFormFieldUser(), EmailTextField(), buildRaisedButtonLogin()],
+        children: <Widget>[
+          buildTextFormFieldUser(),
+          EmailTextField(
+            controller: this.controller,
+          ),
+          buildRaisedButtonLogin()
+        ],
       ),
     );
   }

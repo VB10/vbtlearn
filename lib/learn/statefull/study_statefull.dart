@@ -10,6 +10,11 @@ class StudyStatefull extends StatefulWidget {
 
 class _StudyStatefullState extends State<StudyStatefull> {
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Logger().e("VBT");
     return Scaffold(

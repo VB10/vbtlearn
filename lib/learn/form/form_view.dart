@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:forminputs/atomic/email_text_field.dart';
+
+import 'email_text_field.dart';
 
 class FormView extends StatefulWidget {
   @override
